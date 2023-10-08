@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.info.aadhaarpeloan.guideinfoapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AadhaarPeLoanGuideInfoApp">
+        <activity
+            android:name=".LoanUi.LoanActivity.DocumentListDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanDocumentListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanEliglibilityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanAadhaarDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanOnAdhaarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.RequiredBussinessLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.RequiredMortigageLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.RequiredHomeLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.RequiredTransferMortigageLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.RequiredTransferHomeLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.DocumentRequiredActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.FAQsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanOptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.FAQsOptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.OptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.GoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.NextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.StartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanSpalshActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
