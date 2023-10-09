@@ -1,10 +1,12 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class RequiredTransferMortigageLoanActivity extends AppCompatActivity imp
     private TextView TvTitle, TvSalaried, TvSelfEmployed,TvSalariedLoan,TvSelfEmployedLoan;
     private ConstraintLayout ConsSalaried;
     private ConstraintLayout ConsSelfEmployed;
+    private Button BtnShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,14 @@ public class RequiredTransferMortigageLoanActivity extends AppCompatActivity imp
         TvSelfEmployedLoan = (TextView) findViewById(R.id.TvSelfEmployedLoan);
         ConsSalaried = (ConstraintLayout) findViewById(R.id.ConsSalaried);
         ConsSelfEmployed = (ConstraintLayout) findViewById(R.id.ConsSelfEmployed);
+        BtnShare = (Button) findViewById(R.id.BtnShare);
     }
 
     private void GuideListerns() {
         IvBack.setOnClickListener(this);
         TvSalaried.setOnClickListener(this);
         TvSelfEmployed.setOnClickListener(this);
+        BtnShare.setOnClickListener(this);
     }
 
     private void GuideActions() {
@@ -73,8 +78,30 @@ public class RequiredTransferMortigageLoanActivity extends AppCompatActivity imp
             case R.id.TvSalaried:
                 GotoSalaried();
                 break;
+            case R.id.BtnShare:
+                GotoShare();
+                break;
         }
     }
+
+    private void GotoShare() {
+        if (ConsSalaried.getVisibility()==View.VISIBLE) {
+            String s = TvTitle.getText().toString().trim() + "\nSalaried\n" + TvSalariedLoan.getText().toString() ;
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, s);
+            startActivity(intent);
+        }else {
+            String s = TvTitle.getText().toString().trim() + "\nSelf Employed\n" + TvSelfEmployedLoan.getText().toString();
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, s);
+            startActivity(intent);
+        }
+    }
+
 
     private void GotoSelfEmployed() {
         if (ConsSelfEmployed.getVisibility() == View.VISIBLE) {

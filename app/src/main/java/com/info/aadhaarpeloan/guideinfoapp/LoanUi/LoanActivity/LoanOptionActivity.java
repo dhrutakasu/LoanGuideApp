@@ -44,7 +44,7 @@ public class LoanOptionActivity extends AppCompatActivity implements View.OnClic
 
     private void GuideActions() {
         IvBack.setVisibility(View.VISIBLE);
-        TvTitle.setText(getResources().getString(R.string.OptionTitle));
+        TvTitle.setText(getResources().getString(R.string.Loans));
     }
 
     @Override

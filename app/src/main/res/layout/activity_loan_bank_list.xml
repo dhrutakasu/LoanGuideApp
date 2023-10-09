@@ -32,21 +32,44 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/main_semibold"
             android:gravity="center_vertical"
-            android:text="@string/AadhaarQue1"
-            android:textSize="@dimen/_12sdp"
-            android:scrollbars="vertical"
             android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/BankSec"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/CardTopBank" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardTopBank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_5ssp"
+            app:cardElevation="@dimen/_5ssp"
+            app:layout_constraintBottom_toTopOf="@id/TvAadhaarDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/TvTopBankDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/main_semibold"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/BankTop"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RvDocList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/TvAadhaarDetail" />
     </androidx.constraintlayout.widget.ConstraintLayout>

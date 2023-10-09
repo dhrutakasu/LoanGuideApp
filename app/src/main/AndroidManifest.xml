@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AadhaarPeLoanGuideInfoApp">
         <activity
+            android:name=".LoanUi.LoanActivity.BankDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.BankListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanCalculateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.HomeLoanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.BankDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.BankListDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.LoanBankListActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoanUi.LoanActivity.DocumentListDetailsActivity"
             android:exported="false" />
         <activity

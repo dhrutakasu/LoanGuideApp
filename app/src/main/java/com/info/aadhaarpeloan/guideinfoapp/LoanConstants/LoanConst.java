@@ -1,12 +1,22 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanConstants;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.provider.Settings;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanModels.BankDescModelItem;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.BankLoanModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.DocumentModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.FAQsModel;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class LoanConst {
@@ -174,5 +184,43 @@ public class LoanConst {
             break;
         }
         return bankLoanModel;
+    }
+
+    public static ArrayList<BankDescModelItem> GotoBankLoanList(Context context) {
+        ArrayList<BankDescModelItem> bankDescModelItems = new ArrayList<>();
+        try {
+            InputStream inputStream = context.getAssets().open("LoanBankList.json");
+            byte[] bytes = new byte[inputStream.available()];
+            inputStream.read(bytes);
+            inputStream.close();
+            JSONArray array = new JSONArray(new String(bytes, StandardCharsets.UTF_8));
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject object = array.getJSONObject(i);
+                bankDescModelItems.add(new BankDescModelItem(object.getString("title"),
+                        object.getString("description"), object.getString("url")));
+            }
+
+        } catch (IOException | JSONException ioException) {
+            ioException.printStackTrace();
+        }
+        return bankDescModelItems;
+    }
+
+    public static boolean areDeveloperOptionsEnabled(ContentResolver contentResolver) {
+        int developerOptions = Settings.Global.getInt(contentResolver, Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
+        return developerOptions == 1;
+    }
+
+    public static boolean checkDeveloperOptions(Context context) {
+        ContentResolver contentResolver = context.getContentResolver(); // You'll need a valid ContentResolver object
+
+        boolean developerOptionsEnabled = areDeveloperOptionsEnabled(contentResolver);
+
+        if (developerOptionsEnabled) {
+            System.out.println("Developer options are enabled on this device.");
+        } else {
+            System.out.println("Developer options are not enabled on this device.");
+        }
+        return developerOptionsEnabled;
     }
 }

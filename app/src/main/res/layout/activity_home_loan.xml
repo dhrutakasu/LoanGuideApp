@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoanUi.LoanActivity.OptionActivity">
+    tools:context=".LoanUi.LoanActivity.HomeLoanActivity">
 
     <RelativeLayout
         android:id="@+id/RlTopBar"
@@ -17,8 +17,9 @@
         <include layout="@layout/layout_topbar" />
     </RelativeLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,29 +28,33 @@
         app:layout_constraintTop_toBottomOf="@+id/RlTopBar">
 
         <Button
-            android:id="@+id/BtnApplyLoan"
-            android:layout_width="@dimen/_150sdp"
+            android:id="@+id/BtnGetLoan"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_margin="@dimen/_20sdp"
             android:background="@drawable/ic_button_view"
-            android:text="@string/LoanApply"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/BtnFAQs" />
-
-        <Button
-            android:id="@+id/BtnFAQs"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/ic_button_view"
-            android:text="@string/LoanFAQs"
+            android:text="@string/GetLoan"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TvLoanTypeDetail" />
+
+        <TextView
+            android:id="@+id/TvLoanTypeDetail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/main_semibold"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_8sdp"
+            android:scrollbars="vertical"
+            android:text="@string/AadhaarQue1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toTopOf="@id/BtnGetLoan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class LoanTypeActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
-    private Button BtnLoanAadhaarOption,BtnLoanType;
+    private Button BtnHomeLoan, BtnEducationLoan, BtnGoldLoan, BtnBusinessLoan, BtnVehicleLoan;
     private ImageView IvBack;
     private TextView TvTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,32 +32,47 @@ public class LoanTypeActivity extends AppCompatActivity implements View.OnClickL
         context = this;
         IvBack = (ImageView) findViewById(R.id.IvBack);
         TvTitle = (TextView) findViewById(R.id.TvTitle);
-        BtnLoanAadhaarOption = (Button) findViewById(R.id.BtnLoanAadhaarOption);
-        BtnLoanType = (Button) findViewById(R.id.BtnLoanType);
+        BtnHomeLoan = (Button) findViewById(R.id.BtnHomeLoan);
+        BtnEducationLoan = (Button) findViewById(R.id.BtnEducationLoan);
+        BtnGoldLoan = (Button) findViewById(R.id.BtnGoldLoan);
+        BtnBusinessLoan = (Button) findViewById(R.id.BtnBusinessLoan);
+        BtnVehicleLoan = (Button) findViewById(R.id.BtnVehicleLoan);
     }
 
     private void GuideListerns() {
         IvBack.setOnClickListener(this);
-        BtnLoanAadhaarOption.setOnClickListener(this);
-        BtnLoanType.setOnClickListener(this);
+        BtnHomeLoan.setOnClickListener(this);
+        BtnEducationLoan.setOnClickListener(this);
+        BtnGoldLoan.setOnClickListener(this);
+        BtnBusinessLoan.setOnClickListener(this);
+        BtnVehicleLoan.setOnClickListener(this);
     }
 
     private void GuideActions() {
         IvBack.setVisibility(View.VISIBLE);
-        TvTitle.setText(getResources().getString(R.string.OptionTitle));
+        TvTitle.setText(getResources().getString(R.string.LoanType));
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.IvBack:
                 onBackPressed();
                 break;
-            case R.id.BtnLoanAadhaarOption:
-                startActivity(new Intent(context, LoanOnAdhaarActivity.class));
+            case R.id.BtnHomeLoan:
+                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 0));
                 break;
-            case R.id.BtnLoanType:
-                startActivity(new Intent(context, LoanTypeActivity.class));
+            case R.id.BtnGoldLoan:
+                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 2));
+                break;
+            case R.id.BtnEducationLoan:
+                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 3));
+                break;
+            case R.id.BtnBusinessLoan:
+                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 1));
+                break;
+            case R.id.BtnVehicleLoan:
+                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 4));
                 break;
         }
     }

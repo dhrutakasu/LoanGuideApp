@@ -1,0 +1,43 @@
+package com.info.aadhaarpeloan.guideinfoapp;
+
+
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
+import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.MainActivity;
+
+public class ExitDialog extends Dialog {
+    private final MainActivity activity;
+    public ExitListener exitListener;
+
+    public interface ExitListener {
+
+        void onExit();
+    }
+
+    public ExitDialog(MainActivity activity, Context context, ExitListener exitListener) {
+        super(context);
+        this.activity = activity;
+        this.exitListener = exitListener;
+        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+    }
+
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.dialog_exit);
+        Button BtnExit = (Button) findViewById(R.id.BtnExit);
+        TextView TvDialogNotExit = (TextView) findViewById(R.id.TvDialogNotExit);
+        BtnExit.setOnClickListener(view -> {
+            exitListener.onExit();
+        });
+        TvDialogNotExit.setOnClickListener(view -> {
+            dismiss();
+        });
+    }
+}

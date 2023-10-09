@@ -45,7 +45,7 @@ public class LoanOnAdhaarActivity extends AppCompatActivity implements View.OnCl
 
     private void GuideActions() {
         IvBack.setVisibility(View.VISIBLE);
-        TvTitle.setText(getResources().getString(R.string.OptionTitle));
+        TvTitle.setText(getResources().getString(R.string.LoanAadhaar));
         RvLoanAadhaar.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         RvLoanAadhaar.setAdapter(new AadhaarAdapter(context, LoanConst.getLoanAadhaar(), pos -> {
             switch (pos) {
@@ -68,7 +68,7 @@ public class LoanOnAdhaarActivity extends AppCompatActivity implements View.OnCl
                 }
                 break;
                 case 3: {
-                    startActivity(new Intent(context, LoanDocumentListActivity.class)
+                    startActivity(new Intent(context, LoanBankListActivity.class)
                             .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue3))
                             .putExtra(LoanConst.AadhaarPos, pos));
                 }

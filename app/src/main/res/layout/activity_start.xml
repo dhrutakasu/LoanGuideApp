@@ -13,22 +13,19 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/ic_button_view"
         android:text="@string/Lets_Start"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/TvFastEasy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/main_bold"
-        android:text="@string/FastEasy"
-        android:textColor="@color/app_color"
-        android:textSize="@dimen/_22sdp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/TvLoanAdviser"
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_300sdp"
+        android:src="@drawable/ic_lets_start"
+        app:layout_constraintBottom_toTopOf="@id/TvFastEasy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/TvLoanAdviser"
@@ -52,6 +49,19 @@
         android:text="@string/LoanStartDec"
         android:textSize="@dimen/_12sdp"
         app:layout_constraintBottom_toTopOf="@id/BtnStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/TvFastEasy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/main_bold"
+        android:text="@string/FastEasy"
+        android:textColor="@color/app_color"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/TvLoanAdviser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

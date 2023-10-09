@@ -1,6 +1,7 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,6 +21,7 @@ public class RequiredBussinessLoanActivity extends AppCompatActivity implements 
     private Context context;
     private ImageView IvBack;
     private TextView TvTitle, TvBusiness;
+    private Button BtnShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +37,17 @@ public class RequiredBussinessLoanActivity extends AppCompatActivity implements 
         IvBack = (ImageView) findViewById(R.id.IvBack);
         TvTitle = (TextView) findViewById(R.id.TvTitle);
         TvBusiness = (TextView) findViewById(R.id.TvBusinessLoan);
+        BtnShare = (Button) findViewById(R.id.BtnShare);
     }
 
     private void GuideListerns() {
         IvBack.setOnClickListener(this);
+        BtnShare.setOnClickListener(this);
     }
 
     private void GuideActions() {
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(LoanConst.getRequiredDocument(context).get(1).toString());
-
     }
 
     @Override
@@ -53,6 +56,18 @@ public class RequiredBussinessLoanActivity extends AppCompatActivity implements 
             case R.id.IvBack:
                 onBackPressed();
                 break;
+            case R.id.BtnShare:
+                GotoShare();
+                break;
         }
+    }
+
+    private void GotoShare() {
+        String s = TvTitle.getText().toString().trim() + "\nSalaried\n" + TvBusiness.getText().toString() + "\n";
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, s);
+        startActivity(intent);
     }
 }

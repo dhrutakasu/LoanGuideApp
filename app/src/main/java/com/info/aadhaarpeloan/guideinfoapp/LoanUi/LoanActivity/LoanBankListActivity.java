@@ -1,28 +1,31 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
+import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanAdapter.AadhaarAdapter;
+import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanAdapter.BankAdapter;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
-public class LoanAadhaarDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class LoanBankListActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
     private ImageView IvBack;
-    private TextView TvTitle, TvAadhaarDetail;
+    private TextView TvTitle;
+    private RecyclerView RvDocList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loan_aadhaar_details);
+        setContentView(R.layout.activity_loan_bank_list);
         GuideViews();
         GuideListerns();
         GuideActions();
@@ -32,7 +35,7 @@ public class LoanAadhaarDetailsActivity extends AppCompatActivity implements Vie
         context = this;
         IvBack = (ImageView) findViewById(R.id.IvBack);
         TvTitle = (TextView) findViewById(R.id.TvTitle);
-        TvAadhaarDetail = (TextView) findViewById(R.id.TvAadhaarDetail);
+        RvDocList = (RecyclerView) findViewById(R.id.RvDocList);
     }
 
     private void GuideListerns() {
@@ -42,9 +45,12 @@ public class LoanAadhaarDetailsActivity extends AppCompatActivity implements Vie
     private void GuideActions() {
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(LoanConst.getLoanAadhaar().get(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
-        TvAadhaarDetail.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));
-        TvAadhaarDetail.setMovementMethod(new ScrollingMovementMethod());
-
+        RvDocList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        RvDocList.setAdapter(new BankAdapter(context, pos -> {
+            startActivity(new Intent(context, BankListDetailsActivity.class)
+                    .putExtra(LoanConst.AadhaarPos, pos)
+                    .putExtra(LoanConst.AadhaarDetail, "Document List"));
+        }));
     }
 
     @Override

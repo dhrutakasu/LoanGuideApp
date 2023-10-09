@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoanUi.LoanActivity.FAQsOptionActivity">
+    tools:context=".LoanUi.LoanActivity.LoanOptionActivity">
 
     <RelativeLayout
         android:id="@+id/RlTopBar"
@@ -47,6 +47,7 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:background="@drawable/ic_button_view"
             android:text="@string/LoanAadhaar"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/BtnLoanType" />
@@ -59,9 +60,18 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/ic_button_view"
             android:text="@string/LoanType"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/TvFAQsDec"
+            android:src="@drawable/ic_loan_on_aadhaar"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
