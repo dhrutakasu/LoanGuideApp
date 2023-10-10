@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoanUi.LoanActivity.MainActivity">
-
+    <ImageView
+        android:id="@+id/IvPrivacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_privacy"
+        android:layout_margin="@dimen/_10sdp"
+        app:tint="@color/app_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/BtnStartMain"
         android:layout_width="@dimen/_120sdp"

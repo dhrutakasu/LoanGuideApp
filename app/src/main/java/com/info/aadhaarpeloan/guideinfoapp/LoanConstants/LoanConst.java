@@ -3,11 +3,16 @@ package com.info.aadhaarpeloan.guideinfoapp.LoanConstants;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
+import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.BankDescModelItem;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.BankLoanModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.DocumentModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.FAQsModel;
+import com.info.aadhaarpeloan.guideinfoapp.LoanModels.LoanAdsModel;
+import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 import org.json.JSONArray;
@@ -20,6 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class LoanConst {
+    public static final String ADS_URL = "https://7starinnovation.com/api/loan.json";
     public static String AadhaarPos = "AadhaarPos";
     public static String AadhaarDetail = "AadhaarDetail";
 
@@ -212,15 +218,71 @@ public class LoanConst {
     }
 
     public static boolean checkDeveloperOptions(Context context) {
-        ContentResolver contentResolver = context.getContentResolver(); // You'll need a valid ContentResolver object
-
+        ContentResolver contentResolver = context.getContentResolver();
         boolean developerOptionsEnabled = areDeveloperOptionsEnabled(contentResolver);
-
         if (developerOptionsEnabled) {
             System.out.println("Developer options are enabled on this device.");
         } else {
             System.out.println("Developer options are not enabled on this device.");
         }
         return developerOptionsEnabled;
+    }
+
+    public static LoanAdsModel LoadAdsData(Context context, LoadAdsId loadAdsId) {
+        LoanAdsModel loanAdsModel = new LoanAdsModel();
+        StringRequest request = new StringRequest(Request.Method.GET, LoanConst.ADS_URL,
+                response2 -> {
+                    try {
+                        JSONObject response = new JSONObject(response2);
+                        loanAdsModel.setPkg(response.getString("pkg"));
+                        loanAdsModel.setBtype(response.getString("btype"));
+                        loanAdsModel.setNtype(response.getString("ntype"));
+                        loanAdsModel.setItype(response.getString("itype"));
+                        loanAdsModel.setLogin(response.getString("login"));
+                        loanAdsModel.setQuerkalink(response.getString("querkalink"));
+                        loanAdsModel.setOwnb(response.getString("ownb"));
+                        loanAdsModel.setOwnn(response.getString("ownn"));
+                        loanAdsModel.setOwnblink(response.getString("ownblink"));
+                        loanAdsModel.setOwnnlink(response.getString("ownnlink"));
+                        loanAdsModel.setStartappid(response.getString("startappid"));
+                        loanAdsModel.setFbad(response.getString("fbad"));
+                        loanAdsModel.setFiad(response.getString("fiad"));
+                        loanAdsModel.setFnad(response.getString("fnad"));
+                        loanAdsModel.setFnbad(response.getString("fnbad"));
+                        loanAdsModel.setPreload(response.getString("preload"));
+                        loanAdsModel.setCloseadopen(response.getString("closeadopen"));
+                        loanAdsModel.setBackads(response.getString("backads"));
+                        loanAdsModel.setSiad(response.getString("siad"));
+                        loanAdsModel.setOad2(response.getString("oad2"));
+                        loanAdsModel.setOad(response.getString("oad"));
+                        loanAdsModel.setBad(response.getString("bad"));
+                        loanAdsModel.setIad(response.getString("iad"));
+                        loanAdsModel.setNad2(response.getString("nad2"));
+                        loanAdsModel.setNad(response.getString("nad"));
+                        loanAdsModel.setLbad(response.getString("lbad"));
+                        loanAdsModel.setLnad(response.getString("lnad"));
+                        loanAdsModel.setLiad(response.getString("liad"));
+                        loanAdsModel.setTelegramlink(response.getString("telegramlink"));
+                        loanAdsModel.setAppPrivacyPolicyLink(response.getString("app_privacyPolicyLink"));
+                        loanAdsModel.setAppAdsButtonColor(response.getString("appAdsButtonColor"));
+                        loanAdsModel.setAppAdsButtonTextColor(response.getString("appAdsButtonTextColor"));
+                        loanAdsModel.setAdscount(response.getString("adscount"));
+                        loadAdsId.getAdsIds(loanAdsModel);
+                    } catch (JSONException e) {
+                        System.out.println("------ -- - JSONException : " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                },
+                error -> {
+                    System.out.println("------ -- - JSONException : " + error.getMessage());
+                    error.getLocalizedMessage();
+                }) {
+        };
+        FetchData.getInstance(context).addToRequestQueue(request);
+        return loanAdsModel;
+    }
+
+    public interface LoadAdsId {
+        void getAdsIds(LoanAdsModel loanAdsModel);
     }
 }

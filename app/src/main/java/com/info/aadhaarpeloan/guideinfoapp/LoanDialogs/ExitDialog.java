@@ -1,4 +1,4 @@
-package com.info.aadhaarpeloan.guideinfoapp;
+package com.info.aadhaarpeloan.guideinfoapp.LoanDialogs;
 
 
 import android.app.Dialog;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.MainActivity;
+import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class ExitDialog extends Dialog {
     private final MainActivity activity;

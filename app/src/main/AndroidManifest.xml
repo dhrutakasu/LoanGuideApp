@@ -3,6 +3,7 @@
     package="com.info.aadhaarpeloan.guideinfoapp">
 
     <application
+        android:name=".LoanApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,95 +11,132 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AadhaarPeLoanGuideInfoApp">
         <activity
-            android:name=".LoanUi.LoanActivity.BankDetailActivity"
+            android:name=".LoanUi.LoanActivity.PrivacyActivity"
             android:exported="false" />
+        <activity
+            android:name=".LoanUi.LoanActivity.BankDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.BankListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanCalculateActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.HomeLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.BankDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.BankListDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanBankListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.DocumentListDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanDocumentListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanEliglibilityActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanAadhaarDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanTypeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanOnAdhaarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.RequiredBussinessLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.RequiredMortigageLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.RequiredHomeLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.RequiredTransferMortigageLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.RequiredTransferHomeLoanActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.DocumentRequiredActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.FAQsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanOptionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.FAQsOptionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.OptionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.GoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.NextActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.StartActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.LoanSpalshActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

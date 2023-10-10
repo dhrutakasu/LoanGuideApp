@@ -1,4 +1,4 @@
-package com.info.aadhaarpeloan.guideinfoapp;
+package com.info.aadhaarpeloan.guideinfoapp.LoanDialogs;
 
 
 import android.app.Dialog;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
+import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class SettingDialog extends Dialog {
     private final LoanSpalshActivity activity;

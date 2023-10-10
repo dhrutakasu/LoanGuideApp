@@ -10,14 +10,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 
-import com.info.aadhaarpeloan.guideinfoapp.ExitDialog;
+import com.info.aadhaarpeloan.guideinfoapp.LoanDialogs.ExitDialog;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context context;
     private Button BtnStartMain;
+    private ImageView IvPrivacy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void GuideViews() {
         context = this;
+        IvPrivacy = (ImageView) findViewById(R.id.IvPrivacy);
         BtnStartMain = (Button) findViewById(R.id.BtnStartMain);
     }
 
     private void GuideListerns() {
+        IvPrivacy.setOnClickListener(this);
         BtnStartMain.setOnClickListener(this);
     }
 
@@ -44,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.IvPrivacy:
+                startActivity(new Intent(context, PrivacyActivity.class));
+                break;
             case R.id.BtnStartMain:
                 startActivity(new Intent(context, OptionActivity.class));
                 break;
@@ -59,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lp.copyFrom(window.getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity =    Gravity.BOTTOM;
+        lp.gravity = Gravity.BOTTOM;
         window.setAttributes(lp);
 
     }
