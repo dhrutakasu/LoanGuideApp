@@ -9,9 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class LoanCalculateActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,6 +48,7 @@ public class LoanCalculateActivity extends AppCompatActivity implements View.OnC
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityNativeAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.GetLoan));
     }

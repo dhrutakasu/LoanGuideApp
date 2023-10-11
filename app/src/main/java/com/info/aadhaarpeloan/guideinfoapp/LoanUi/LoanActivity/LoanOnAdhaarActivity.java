@@ -11,8 +11,11 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanAdapter.AadhaarAdapter;
 import com.info.aadhaarpeloan.guideinfoapp.R;
@@ -44,6 +47,7 @@ public class LoanOnAdhaarActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.LoanAadhaar));
         RvLoanAadhaar.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));

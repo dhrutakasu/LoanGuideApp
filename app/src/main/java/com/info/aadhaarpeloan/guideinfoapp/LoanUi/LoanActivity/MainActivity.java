@@ -11,7 +11,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanDialogs.ExitDialog;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void GuideActions() {
-
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
     }
 
     @Override

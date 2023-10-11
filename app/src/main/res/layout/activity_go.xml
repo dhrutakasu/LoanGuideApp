@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".LoanUi.LoanActivity.GoActivity">
 
+    <RelativeLayout
+        android:id="@+id/RlBannerAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:gravity="bottom|center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+    </RelativeLayout>
     <Button
         android:id="@+id/BtnGo"
         android:layout_width="@dimen/_120sdp"
@@ -14,7 +30,7 @@
         android:background="@drawable/ic_button_view"
         android:text="@string/Lets_Go"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/RlBannerAd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

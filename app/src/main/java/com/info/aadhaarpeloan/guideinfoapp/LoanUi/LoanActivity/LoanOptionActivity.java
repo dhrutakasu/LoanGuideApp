@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,6 +46,7 @@ public class LoanOptionActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.Loans));
     }

@@ -4,8 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
@@ -37,6 +40,7 @@ public class LoanEliglibilityActivity extends AppCompatActivity implements View.
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(LoanConst.getLoanAadhaar().get(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
         TvAadhaarDetail.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));

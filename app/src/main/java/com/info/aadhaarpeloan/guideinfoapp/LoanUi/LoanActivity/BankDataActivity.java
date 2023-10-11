@@ -6,8 +6,11 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanAdapter.AadhaarAdapter;
 import com.info.aadhaarpeloan.guideinfoapp.R;
@@ -51,6 +54,7 @@ public class BankDataActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText("Loan Details");
         TvDocDec.setText(LoanConst.getLoanBankModel(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)).getDescription());

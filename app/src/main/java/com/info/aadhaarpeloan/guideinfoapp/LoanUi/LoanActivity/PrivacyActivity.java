@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
@@ -50,6 +51,7 @@ public class PrivacyActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void GuideActions() {
+        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
         IvBack.setVisibility(View.VISIBLE);
         ProgressDialog.setVisibility(View.VISIBLE);
         WebViewPolicy.setVisibility(View.GONE);

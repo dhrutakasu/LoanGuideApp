@@ -9,8 +9,11 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanConst;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
@@ -40,11 +43,15 @@ public class LoanAadhaarDetailsActivity extends AppCompatActivity implements Vie
     }
 
     private void GuideActions() {
-        IvBack.setVisibility(View.VISIBLE);
-        TvTitle.setText(LoanConst.getLoanAadhaar().get(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
-        TvAadhaarDetail.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));
-        TvAadhaarDetail.setMovementMethod(new ScrollingMovementMethod());
-
+        if (getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 0 || getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 3 || getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 5) {
+            LoanAdsClass.ShowActivityNativeAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
+        } else {
+            LoanAdsClass.ShowActivityBannerAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
+            IvBack.setVisibility(View.VISIBLE);
+            TvTitle.setText(LoanConst.getLoanAadhaar().get(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
+            TvAadhaarDetail.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));
+            TvAadhaarDetail.setMovementMethod(new ScrollingMovementMethod());
+        }
     }
 
     @Override

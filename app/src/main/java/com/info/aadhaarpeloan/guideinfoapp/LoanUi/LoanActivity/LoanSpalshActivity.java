@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
@@ -52,14 +53,6 @@ public class LoanSpalshActivity extends AppCompatActivity {
 //            lp.gravity = Gravity.BOTTOM;
 //            window.setAttributes(lp);
 //        } else {
-        /*Application application = getApplication();
-
-        ((LoanApp) application).OnShowAd(LoanSpalshActivity.this, new LoanApp.OnLoadAdCompleteListener() {
-            @Override
-            public void onLoadAdComplete() {
-                GotoStartActivity();
-            }
-        });*/
         if (LoanAdsClass.isInternetOn(this)) {
             progressSplash.setVisibility(View.VISIBLE);
 
@@ -80,13 +73,10 @@ public class LoanSpalshActivity extends AppCompatActivity {
                 }
             });
         } else {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    GotoStartActivity();
-                }
-            }, 2000L);
+            Toast.makeText(this, "Please Turn Your Internet..", Toast.LENGTH_SHORT).show();
+            finish();
         }
+//    }
     }
 
     public void fetchAd(String OpenAd) {
