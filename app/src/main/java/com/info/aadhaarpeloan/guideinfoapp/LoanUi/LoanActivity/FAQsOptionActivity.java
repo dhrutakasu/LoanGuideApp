@@ -59,10 +59,20 @@ public class FAQsOptionActivity extends AppCompatActivity implements View.OnClic
                 onBackPressed();
                 break;
             case R.id.BtnFAQsOption:
-                startActivity(new Intent(context, FAQsActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, FAQsActivity.class));
+                    }
+                });
                 break;
             case R.id.BtnDocumentRequired:
-                startActivity(new Intent(context, DocumentRequiredActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, DocumentRequiredActivity.class));
+                    }
+                });
                 break;
         }
     }

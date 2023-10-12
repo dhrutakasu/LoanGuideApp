@@ -1,5 +1,7 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanConstants;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -23,6 +25,10 @@ import android.widget.TextView;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdOptionsView;
+import com.facebook.ads.AdSettings;
+import com.facebook.ads.AudienceNetworkAds;
+import com.facebook.ads.BuildConfig;
+import com.facebook.ads.InterstitialAdListener;
 import com.facebook.ads.NativeAdLayout;
 import com.facebook.ads.NativeAdListener;
 import com.facebook.ads.NativeBannerAd;
@@ -47,6 +53,8 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.LoanAdsModel;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +65,7 @@ public class LoanAdsClass {
     public static InterstitialAd interstitialAd;
     public static LoanCallback loanCallback;
     public static NativeAd nativeAd;
+    private static int Counter = 1;
     //banner
         /* if (AdsClass.isInternetOn(context)) {
                 AdsClass.showBanner(this, AdSize.LARGE_BANNER, (RelativeLayout) findViewById(R.id.RlBannerAdView), (RelativeLayout) findViewById(R.id.RlBannerAd),Constants.BannerAd,"true");
@@ -81,7 +90,7 @@ public class LoanAdsClass {
         com.facebook.ads.AdListener adListener = new com.facebook.ads.AdListener() {
             @Override
             public void onError(Ad ad, com.facebook.ads.AdError adError) {
-
+                System.out.println("------errr : " + adError.getErrorMessage());
             }
 
             @Override
@@ -154,9 +163,17 @@ public class LoanAdsClass {
                 public void getAdsIds(LoanAdsModel loanAdsModel) {
                     progressBar.setVisibility(View.GONE);
                     if (loanAdsModel.getBtype().equalsIgnoreCase("1")) {
+                        if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
+                            ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+                        }
                         LoanAdsClass.showAdMobBanner(context, com.google.android.gms.ads.AdSize.BANNER, RlBannerAd, loanAdsModel.getBad(), loanAdsModel.getLogin());
                     } else {
-                        LoanAdsClass.showFbBanner(context, com.facebook.ads.AdSize.BANNER_HEIGHT_50, RlBannerAd, loanAdsModel.getFbad(), loanAdsModel.getLogin());
+                        if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
+                            ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.VISIBLE);
+                        }
+                        System.out.println("------- getFbad : " + loanAdsModel.getFbad());
+                        Initialize(context);
+                        LoanAdsClass.showFbBanner(context, com.facebook.ads.AdSize.BANNER_HEIGHT_50, RlBannerAd, loanAdsModel.getBad(), loanAdsModel.getLogin());
                     }
                 }
             });
@@ -177,7 +194,7 @@ public class LoanAdsClass {
 
     }
 
-    public void loadInterOne(Activity activity, String id, String show) {
+    public static void ShowInterstitialAd(Activity activity, String id, String show, LoanCallback loanCallback) {
         MobileAds.initialize(activity, new OnInitializationCompleteListener() {
 
             @Override
@@ -188,90 +205,124 @@ public class LoanAdsClass {
         interstitialAd.load(activity, id, new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
             public void onAdLoaded(InterstitialAd interstitialAd) {
                 LoanAdsClass.interstitialAd = interstitialAd;
+                if (show.equalsIgnoreCase("t")) {
+                    if (interstitialAd != null) {
+                        interstitialAd.show(activity);
+                        return;
+                    }
+                }
                 LoanAdsClass.interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                     @Override
                     public void onAdDismissedFullScreenContent() {
+                        System.out.println("----- - - dissmidd : ");
                         LoanAdsClass.interstitialAd = null;
-                        loadInterOne(activity, id, show);
-                        if (loanCallback != null) {
-                            loanCallback.AppCallback();
-                            loanCallback = null;
+
+
+                        LoanAdsClass.loanCallback = loanCallback;
+                        if (LoanAdsClass.loanCallback != null) {
+                            LoanAdsClass.loanCallback.AppCallback();
+                            LoanAdsClass.loanCallback = null;
                         }
                     }
 
                     @Override
                     public void onAdFailedToShowFullScreenContent(AdError adError) {
-
                         LoanAdsClass.interstitialAd = null;
-                        loadInterOne(activity, id, show);
+                        System.out.println("----- - - ad error : " + adError.getMessage());
+//                        ShowInterstitialAd(activity, id, show, loanCallback);
                     }
                 });
             }
 
             @Override
             public void onAdFailedToLoad(LoadAdError loadAdError) {
+                System.out.println("----- - - load error : " + loadAdError.getMessage());
                 interstitialAd = null;
             }
         });
     }
 
-    public static void loadInterOne(final Activity activity, String id) {
+    public static void ShowFbInterstitialAd(Activity activity, String id, String show, LoanCallback loanCallback) {
         MobileAds.initialize(activity, new OnInitializationCompleteListener() {
 
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-
-        InterstitialAd.load(activity, id, new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
-            public void onAdLoaded(InterstitialAd interstitialAd) {
-                LoanAdsClass.interstitialAd = interstitialAd;
-                LoanAdsClass.interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                    @Override
-                    public void onAdDismissedFullScreenContent() {
-                        LoanAdsClass.interstitialAd = null;
-                        loadInterOne(activity, id);
-                        if (loanCallback != null) {
-                            loanCallback.AppCallback();
-                            loanCallback = null;
-                        }
-                    }
-
-                    @Override
-                    public void onAdFailedToShowFullScreenContent(AdError adError) {
-
-                        LoanAdsClass.interstitialAd = null;
-                        loadInterOne(activity, id);
-                    }
-                });
+        com.facebook.ads.InterstitialAd interstitialAd = new com.facebook.ads.InterstitialAd(activity, id);
+        InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
             }
 
             @Override
-            public void onAdFailedToLoad(LoadAdError loadAdError) {
-                interstitialAd = null;
+            public void onInterstitialDismissed(Ad ad) {
+                System.out.println("----- - - onInterstitialDismissed : ");
+                LoanAdsClass.loanCallback = loanCallback;
+                if (LoanAdsClass.loanCallback != null) {
+                    LoanAdsClass.loanCallback.AppCallback();
+                    LoanAdsClass.loanCallback = null;
+                }
             }
-        });
+
+            @Override
+            public void onError(Ad ad, com.facebook.ads.AdError adError) {
+                System.out.println("----- - - ad error : " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                System.out.println("----- - - ad  : ");
+                if (show.equalsIgnoreCase("t")) {
+                    if (interstitialAd != null) {
+                        interstitialAd.show();
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+            }
+        };
+
+        interstitialAd.loadAd(interstitialAd.buildLoadAdConfig()
+                .withAdListener(interstitialAdListener)
+                .build());
+
     }
 
-    public static void showInter(Activity activity, LoanCallback loanCallback2, String show) {
-        loanCallback = loanCallback2;
-
-        if (show.equalsIgnoreCase("t")) {
-            InterstitialAd interstitialAd = LoanAdsClass.interstitialAd;
-            if (interstitialAd != null) {
-                interstitialAd.show(activity);
-                return;
-            }
-
-            if (loanCallback != null) {
-                loanCallback.AppCallback();
-                loanCallback = null;
-            }
+    public static void ShowActivityInterstitialAd(Context context, LoanCallback loanCallback) {
+        int itemClick = LoanAdsClass.Counter++;
+        if (LoanAdsClass.isInternetOn(context)) {
+            LoanConst.LoadAdsData(context, new LoanConst.LoadAdsId() {
+                @Override
+                public void getAdsIds(LoanAdsModel loanAdsModel) {
+                    if (itemClick % Integer.parseInt(loanAdsModel.getAdscount()) == 0) {
+                        if (loanAdsModel.getItype().equalsIgnoreCase("1")) {
+                            if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
+                                ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+                            }
+                            LoanAdsClass.ShowInterstitialAd((Activity) context, loanAdsModel.getIad(), loanAdsModel.getLogin(), loanCallback);
+                        } else {
+                            if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
+                                ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.VISIBLE);
+                            }
+                            System.out.println("------- getFbad : " + loanAdsModel.getIad());
+                            Initialize(context);
+                            LoanAdsClass.ShowFbInterstitialAd((Activity) context, loanAdsModel.getFiad(), loanAdsModel.getLogin(), loanCallback);
+                        }
+                    } else {
+                        loanCallback.AppCallback();
+                    }
+                }
+            });
         } else {
-            if (loanCallback != null) {
-                loanCallback.AppCallback();
-                loanCallback = null;
-            }
+            loanCallback.AppCallback();
         }
     }
 
@@ -341,6 +392,7 @@ public class LoanAdsClass {
 
             @Override
             public void onError(Ad ad, com.facebook.ads.AdError adError) {
+                System.out.println("------errr : " + adError.getErrorMessage());
             }
 
             @Override
@@ -413,11 +465,12 @@ public class LoanAdsClass {
                 @Override
                 public void getAdsIds(LoanAdsModel loanAdsModel) {
                     progressBar.setVisibility(View.GONE);
-//                    if (loanAdsModel.getBtype().equalsIgnoreCase("1")) {
-//                        LoanAdsClass.showAdMobNative((Activity) context, loanAdsModel.getNad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
-//                    } else {
-                    LoanAdsClass.showFbNativeBanner((Activity) context, ((NativeAdLayout) ((Activity) context).findViewById(R.id.NativeBannerAdContainer)), loanAdsModel.getFnbad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
-//                    }
+                    if (loanAdsModel.getBtype().equalsIgnoreCase("1")) {
+                        LoanAdsClass.showAdMobNative((Activity) context, loanAdsModel.getNad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
+                    } else {
+                        Initialize(context);
+                        LoanAdsClass.showFbNativeBanner((Activity) context, ((NativeAdLayout) ((Activity) context).findViewById(R.id.NativeBannerAdContainer)), loanAdsModel.getFnbad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
+                    }
                 }
             });
         } else {
@@ -435,10 +488,12 @@ public class LoanAdsClass {
 
             @Override
             public void onError(Ad ad, com.facebook.ads.AdError adError) {
+                System.out.println("----- -err " + adError.getErrorMessage());
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
+                System.out.println("----- - -native : " + nativeAd);
                 if (nativeAd == null || nativeAd != ad) {
                     return;
                 }
@@ -469,7 +524,8 @@ public class LoanAdsClass {
         nativeAd.unregisterView();
         LayoutInflater inflater = LayoutInflater.from(activity);
         LinearLayout inflate = (LinearLayout) inflater.inflate(R.layout.layout_fb_native_ad, nativeAdLayout, false);
-        nativeAdLayout.addView(inflate);
+        inflate.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, 800));
+        nativeAdLayout.addView(inflate, new RelativeLayout.LayoutParams(MATCH_PARENT, 800));
 
         LinearLayout adChoicesContainer = inflate.findViewById(R.id.RlAdChoicesContainer);
         AdOptionsView adOptionsView = new AdOptionsView(activity, nativeAd, nativeAdLayout);
@@ -482,6 +538,7 @@ public class LoanAdsClass {
         TextView nativeAdBody = inflate.findViewById(R.id.TxtNativeAdBody);
         com.facebook.ads.MediaView nativeAdIconView = inflate.findViewById(R.id.MediaNativeIconView);
         com.facebook.ads.MediaView MediaNativeAd = inflate.findViewById(R.id.MediaNativeAd);
+        MediaNativeAd.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, 500));
         Button nativeAdCallToAction = inflate.findViewById(R.id.BtnNativeAdCallAction);
 
         nativeAdTitle.setTextColor(Color.parseColor(appAdsButtonTextColor));
@@ -511,16 +568,60 @@ public class LoanAdsClass {
                 @Override
                 public void getAdsIds(LoanAdsModel loanAdsModel) {
                     progressBar.setVisibility(View.GONE);
-//                    if (loanAdsModel.getBtype().equalsIgnoreCase("1")) {
-//                        LoanAdsClass.showAdMobNative((Activity) context, loanAdsModel.getNad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
-//                    } else {
-                    LoanAdsClass.showFbNative((Activity) context, ((NativeAdLayout) ((Activity) context).findViewById(R.id.NativeBannerAdContainer)), loanAdsModel.getFnbad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
-//                    }
+                    if (loanAdsModel.getBtype().equalsIgnoreCase("1")) {
+                        LoanAdsClass.showAdMobNative((Activity) context, loanAdsModel.getNad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
+                    } else {
+                        Initialize(context);
+                        LoanAdsClass.showFbNative((Activity) context, ((NativeAdLayout) ((Activity) context).findViewById(R.id.NativeBannerAdContainer)), loanAdsModel.getFnad(), RlNativeAd, loanAdsModel.getLogin(), loanAdsModel.getAppAdsButtonTextColor(), loanAdsModel.getAppAdsButtonColor());
+                    }
                 }
             });
         } else {
             RlNativeAd.setVisibility(View.GONE);
         }
+    }
+
+    public static void Initialize(Context context) {
+        AudienceNetworkAds.InitListener InitListener = new AudienceNetworkAds.InitListener() {
+            @Override
+            public void onInitialized(AudienceNetworkAds.InitResult initResult) {
+                if (!AudienceNetworkAds.isInitialized(context)) {
+                    if (BuildConfig.DEBUG) {
+                        AdSettings.setTestMode(true);
+                    }
+
+
+                }
+            }
+        };
+        AdSettings.addTestDevice("eb0e0ede-fbb0-4067-a77c-082954a41d1c");
+//        TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+//        System.out.println("---- : "+md5(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)).toUpperCase());
+//        AdSettings.addTestDevice(md5(Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID).toUpperCase()));
+        AudienceNetworkAds
+                .buildInitSettings(context)
+                .withInitListener(InitListener)
+                .initialize();
+    }
+
+    public static final String md5(final String s) {
+        try {
+            MessageDigest digest = java.security.MessageDigest
+                    .getInstance("MD5");
+            digest.update(s.getBytes());
+            byte messageDigest[] = digest.digest();
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++) {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                hexString.append(h);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+        }
+        return "";
     }
 
     @SuppressLint("WrongConstant")

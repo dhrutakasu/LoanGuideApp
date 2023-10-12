@@ -64,20 +64,48 @@ public class LoanTypeActivity extends AppCompatActivity implements View.OnClickL
                 onBackPressed();
                 break;
             case R.id.BtnHomeLoan:
-                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 0));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        loadNewActivity(0);
+                    }
+                });
                 break;
             case R.id.BtnGoldLoan:
-                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 2));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        loadNewActivity(2);
+                    }
+                });
                 break;
             case R.id.BtnEducationLoan:
-                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 3));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        loadNewActivity(3);
+                    }
+                });
                 break;
             case R.id.BtnBusinessLoan:
-                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 1));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        loadNewActivity(1);
+                    }
+                });
                 break;
             case R.id.BtnVehicleLoan:
-                startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, 4));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        loadNewActivity(4);
+                    }
+                });
                 break;
         }
+    }
+    public void loadNewActivity(int pos){
+        startActivity(new Intent(context, HomeLoanActivity.class).putExtra(LoanConst.AadhaarPos, pos));
     }
 }

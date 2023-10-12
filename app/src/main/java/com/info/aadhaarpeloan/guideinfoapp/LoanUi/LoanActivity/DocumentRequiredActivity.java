@@ -48,7 +48,7 @@ public class DocumentRequiredActivity extends AppCompatActivity implements View.
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityNativeAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
+        LoanAdsClass.ShowActivityNativeAds(context, ((ProgressBar) findViewById(R.id.progressBarNative)), (RelativeLayout) findViewById(R.id.RlNativeAd));
 
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.DocumentRequired));
@@ -56,22 +56,51 @@ public class DocumentRequiredActivity extends AppCompatActivity implements View.
         RvDocumentRequired.setAdapter(new DocumentRequiredAdapter(context, LoanConst.getRequiredDocument(context), i -> {
             switch (i) {
                 case 0:
-                    startActivity(new Intent(context, RequiredHomeLoanActivity.class));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            loadNewActivity(RequiredHomeLoanActivity.class);
+                        }
+                    });
                     break;
                 case 1:
-                    startActivity(new Intent(context, RequiredBussinessLoanActivity.class));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            loadNewActivity(RequiredBussinessLoanActivity.class);
+                        }
+                    });
                     break;
                 case 2:
-                    startActivity(new Intent(context, RequiredMortigageLoanActivity.class));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            loadNewActivity(RequiredMortigageLoanActivity.class);
+                        }
+                    });
                     break;
                 case 3:
-                    startActivity(new Intent(context, RequiredTransferHomeLoanActivity.class));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            loadNewActivity(RequiredTransferHomeLoanActivity.class);
+                        }
+                    });
                     break;
                 case 4:
-                    startActivity(new Intent(context, RequiredTransferMortigageLoanActivity.class));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            loadNewActivity(RequiredTransferMortigageLoanActivity.class);
+                        }
+                    });
                     break;
             }
         }));
+    }
+
+    public void loadNewActivity(Class aClass) {
+        startActivity(new Intent(context, aClass));
     }
 
     @Override

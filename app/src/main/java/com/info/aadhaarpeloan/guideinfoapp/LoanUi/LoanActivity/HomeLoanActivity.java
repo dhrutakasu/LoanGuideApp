@@ -87,7 +87,12 @@ public class HomeLoanActivity extends AppCompatActivity implements View.OnClickL
                 onBackPressed();
                 break;
             case R.id.BtnGetLoan:
-                startActivity(new Intent(context, LoanCalculateActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, LoanCalculateActivity.class));
+                    }
+                });
                 break;
         }
     }

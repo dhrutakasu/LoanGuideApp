@@ -67,11 +67,22 @@ public class BankDataActivity extends AppCompatActivity implements View.OnClickL
         TvDetailTitle.setPaintFlags(TvDocTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         RvDocList.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
         RvDocList.setAdapter(new AadhaarAdapter(context, LoanConst.getLoanBankModel(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)).getDescList(), pos -> {
-            startActivity(new Intent(context, BankDataActivity.class));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, BankDataActivity.class));
+                }
+            });
+
         }));
         RvDetailList.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
         RvDetailList.setAdapter(new AadhaarAdapter(context, LoanConst.getLoanBankModel(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)).getSubDecList(), pos -> {
-            startActivity(new Intent(context, BankDataActivity.class));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, BankDataActivity.class));
+                }
+            });
         }));
     }
 

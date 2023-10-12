@@ -64,8 +64,14 @@ public class BankListDetailsActivity extends AppCompatActivity implements View.O
         stringArrayList.add("Aadhaar Loan Details");
         stringArrayList.add("Aadhaar Loan Documents");
         RvDocList.setAdapter(new AadhaarAdapter(context, stringArrayList, pos -> {
-            startActivity(new Intent(context, BankDataActivity.class)
-                    .putExtra(LoanConst.AadhaarPos, getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, BankDataActivity.class)
+                            .putExtra(LoanConst.AadhaarPos, getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
+
+                }
+            });
         }));
     }
 

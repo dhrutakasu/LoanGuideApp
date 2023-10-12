@@ -1,5 +1,6 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
@@ -60,13 +61,18 @@ public class LoanSpalshActivity extends AppCompatActivity {
                 @Override
                 public void getAdsIds(LoanAdsModel loanAdsModel) {
                     if (!loanAdsModel.getOad().equalsIgnoreCase("")) {
-                        fetchAd(loanAdsModel.getOad());
+                        fetchAd(loanAdsModel);
                     } else {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 progressSplash.setVisibility(View.GONE);
-                                GotoStartActivity();
+                                LoanAdsClass.ShowActivityInterstitialAd(LoanSpalshActivity.this, new LoanAdsClass.LoanCallback() {
+                                    @Override
+                                    public void AppCallback() {
+                                        GotoStartActivity();
+                                    }
+                                });
                             }
                         }, 2000L);
                     }
@@ -79,7 +85,7 @@ public class LoanSpalshActivity extends AppCompatActivity {
 //    }
     }
 
-    public void fetchAd(String OpenAd) {
+    public void fetchAd(LoanAdsModel loanAdsModel) {
         AppOpenAd.AppOpenAdLoadCallback loadCallback = new AppOpenAd.AppOpenAdLoadCallback() {
             private AppOpenAd appOpenAd;
 
@@ -98,13 +104,41 @@ public class LoanSpalshActivity extends AppCompatActivity {
                         @Override
                         public void onAdDismissedFullScreenContent() {
                             progressSplash.setVisibility(View.GONE);
+                            appOpenAd = null;
                             GotoStartActivity();
+                           /* if (LoanSpalshActivity.this.loanAdsModel.getItype().equalsIgnoreCase("1")) {
+                                if (findViewById(R.id.NativeBannerAdContainer) != null) {
+                                    findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+                                }
+                                LoanAdsClass.ShowInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> GotoStartActivity());
+                            } else {
+                                if (findViewById(R.id.NativeBannerAdContainer) != null) {
+                                    findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+                                }
+                                System.out.println("------- getFbad : " + LoanSpalshActivity.this.loanAdsModel.getIad());
+                                LoanAdsClass.Initialize(LoanSpalshActivity.this);
+                                LoanAdsClass.ShowFbInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> GotoStartActivity());
+                            }
+                            return;*/
                         }
 
                         @Override
                         public void onAdFailedToShowFullScreenContent(AdError adError) {
                             appOpenAd = null;
                             GotoStartActivity();
+                            /*if (LoanSpalshActivity.this.loanAdsModel.getItype().equalsIgnoreCase("1")) {
+                                if (findViewById(R.id.NativeBannerAdContainer) != null) {
+                                    findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+                                }
+                                LoanAdsClass.ShowInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> GotoStartActivity());
+                            } else {
+                                if (findViewById(R.id.NativeBannerAdContainer) != null) {
+                                    findViewById(R.id.NativeBannerAdContainer).setVisibility(View.VISIBLE);
+                                }
+                                System.out.println("------- getFbad : " + LoanSpalshActivity.this.loanAdsModel.getIad());
+                                LoanAdsClass.Initialize(LoanSpalshActivity.this);
+                                LoanAdsClass.ShowFbInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> GotoStartActivity());
+                            }*/
                             progressSplash.setVisibility(View.GONE);
                         }
 
@@ -122,12 +156,30 @@ public class LoanSpalshActivity extends AppCompatActivity {
             }
         };
         AdRequest request = new AdRequest.Builder().build();
-        AppOpenAd.load(this, OpenAd, request, AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT, loadCallback);
+        AppOpenAd.load(this, loanAdsModel.getOad(), request, AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT, loadCallback);
     }
 
     private void GotoStartActivity() {
-        startActivity(new Intent(LoanSpalshActivity.this, StartActivity.class));
-        finish();
+//        if (LoanSpalshActivity.this.loanAdsModel.getItype().equalsIgnoreCase("1")) {
+//            if (findViewById(R.id.NativeBannerAdContainer) != null) {
+//                findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+//            }
+//            LoanAdsClass.ShowInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> {
+                startActivity(new Intent(LoanSpalshActivity.this, StartActivity.class));
+                finish();
+          /*  });
+        } else {
+            if (findViewById(R.id.NativeBannerAdContainer) != null) {
+                findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
+            }
+            System.out.println("------- getFbad : " + LoanSpalshActivity.this.loanAdsModel.getIad());
+            LoanAdsClass.Initialize(LoanSpalshActivity.this);
+            LoanAdsClass.ShowFbInterstitialAd(LoanSpalshActivity.this, LoanSpalshActivity.this.loanAdsModel.getIad(), LoanSpalshActivity.this.loanAdsModel.getLogin(), () -> {
+
+                startActivity(new Intent(LoanSpalshActivity.this, StartActivity.class));
+                finish();
+            });
+        }*/
     }
 
 }

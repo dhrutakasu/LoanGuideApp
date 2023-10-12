@@ -58,10 +58,20 @@ public class LoanOptionActivity extends AppCompatActivity implements View.OnClic
                 onBackPressed();
                 break;
             case R.id.BtnLoanAadhaarOption:
-                startActivity(new Intent(context, LoanOnAdhaarActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, LoanOnAdhaarActivity.class));
+                    }
+                });
                 break;
             case R.id.BtnLoanType:
-                startActivity(new Intent(context, LoanTypeActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, LoanTypeActivity.class));
+                    }
+                });
                 break;
         }
     }

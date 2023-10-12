@@ -3,7 +3,7 @@
     android:id="@+id/ad_unit"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
     android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
@@ -98,13 +98,11 @@
         <Button
             android:id="@+id/BtnNativeAdCallAction"
             android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="#4286F4"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:textColor="@android:color/white"
             android:textSize="12sp"
             android:visibility="gone" />
 

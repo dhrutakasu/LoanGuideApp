@@ -43,7 +43,12 @@ public class GoActivity extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.BtnGo:
-                startActivity(new Intent(context, MainActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, MainActivity.class));
+                    }
+                });
                 break;
         }
     }

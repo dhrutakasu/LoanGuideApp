@@ -52,9 +52,14 @@ public class LoanDocumentListActivity extends AppCompatActivity implements View.
         TvAadhaarDetail.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));
         RvDocList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         RvDocList.setAdapter(new AadhaarAdapter(context, LoanConst.getLoanDocumentList(), pos -> {
-            startActivity(new Intent(context, DocumentListDetailsActivity.class)
-                    .putExtra(LoanConst.AadhaarPos, pos)
-                    .putExtra(LoanConst.AadhaarDetail, "Document List"));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, DocumentListDetailsActivity.class)
+                            .putExtra(LoanConst.AadhaarPos, pos)
+                            .putExtra(LoanConst.AadhaarDetail, "Document List"));
+                }
+            });
         }));
     }
 

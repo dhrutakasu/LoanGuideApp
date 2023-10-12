@@ -69,8 +69,13 @@ public class LoanCalculateActivity extends AppCompatActivity implements View.OnC
         if (EdtLoanAmount.getText().toString().isEmpty() || EdLoanTime.getText().toString().isEmpty()) {
             Toast.makeText(context, getResources().getString(R.string.LoanFill), Toast.LENGTH_SHORT).show();
         } else {
-            GotoResult();
-            startActivity(new Intent(context,BankListActivity.class));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    GotoResult();
+                    startActivity(new Intent(context,BankListActivity.class));
+                }
+            });
         }
     }
 

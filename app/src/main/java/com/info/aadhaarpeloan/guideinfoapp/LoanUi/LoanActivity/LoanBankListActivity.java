@@ -51,9 +51,15 @@ public class LoanBankListActivity extends AppCompatActivity implements View.OnCl
         TvTitle.setText(LoanConst.getLoanAadhaar().get(getIntent().getIntExtra(LoanConst.AadhaarPos, 0)));
         RvDocList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         RvDocList.setAdapter(new BankAdapter(context, pos -> {
-            startActivity(new Intent(context, BankListDetailsActivity.class)
-                    .putExtra(LoanConst.AadhaarPos, pos)
-                    .putExtra(LoanConst.AadhaarDetail, "Document List"));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, BankListDetailsActivity.class)
+                            .putExtra(LoanConst.AadhaarPos, pos)
+                            .putExtra(LoanConst.AadhaarDetail, "Document List"));
+                }
+            });
+
         }));
     }
 

@@ -60,10 +60,20 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
                 onBackPressed();
                 break;
             case R.id.BtnApplyLoan:
-                startActivity(new Intent(context, LoanOptionActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, LoanOptionActivity.class));
+                    }
+                });
                 break;
             case R.id.BtnFAQs:
-                startActivity(new Intent(context, FAQsOptionActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, FAQsOptionActivity.class));
+                    }
+                });
                 break;
         }
     }}

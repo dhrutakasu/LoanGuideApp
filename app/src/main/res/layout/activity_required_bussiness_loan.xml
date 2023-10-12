@@ -37,7 +37,6 @@
                 android:layout_margin="@dimen/_5ssp"
                 app:cardCornerRadius="@dimen/_5ssp"
                 app:cardElevation="@dimen/_5ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -79,7 +78,17 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
+            <Button
+                android:id="@+id/BtnShare"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/ic_button_view"
+                android:text="@string/Share"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/CardBusiness" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
     <RelativeLayout

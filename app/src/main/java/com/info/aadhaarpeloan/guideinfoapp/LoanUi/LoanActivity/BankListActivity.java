@@ -69,7 +69,12 @@ public class BankListActivity extends AppCompatActivity implements View.OnClickL
         }
         RvBankList.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
         RvBankList.setAdapter(new AadhaarAdapter(context, stringArrayList, pos -> {
-            startActivity(new Intent(context, BankDetailActivity.class).putExtra(LoanConst.AadhaarDetail, stringArrayList.get(pos)));
+            LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                @Override
+                public void AppCallback() {
+                    startActivity(new Intent(context, BankDetailActivity.class).putExtra(LoanConst.AadhaarDetail, stringArrayList.get(pos)));
+                }
+            });
         }));
     }
 

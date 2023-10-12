@@ -46,7 +46,12 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.BtnNext:
-                startActivity(new Intent(context, GoActivity.class));
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, GoActivity.class));
+                    }
+                });
                 break;
         }
     }

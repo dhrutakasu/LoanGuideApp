@@ -54,45 +54,85 @@ public class LoanOnAdhaarActivity extends AppCompatActivity implements View.OnCl
         RvLoanAadhaar.setAdapter(new AadhaarAdapter(context, LoanConst.getLoanAadhaar(), pos -> {
             switch (pos) {
                 case 0: {
-                    startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue1))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue1))
+                                    .putExtra(LoanConst.AadhaarPos, pos));                        }
+                    });
                 }
                 break;
                 case 1: {
-                    startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue2))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue2))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
                 case 2: {
-                    startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue3))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue3))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
                 case 3: {
-                    startActivity(new Intent(context, LoanBankListActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue3))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanBankListActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue3))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
                 case 4: {
-                    startActivity(new Intent(context, LoanDocumentListActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue4))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanDocumentListActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue4))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
                 case 5: {
-                    startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue5))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanAadhaarDetailsActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue5))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
                 case 6: {
-                    startActivity(new Intent(context, LoanEliglibilityActivity.class)
-                            .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue6))
-                            .putExtra(LoanConst.AadhaarPos, pos));
+                    LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                        @Override
+                        public void AppCallback() {
+                            startActivity(new Intent(context, LoanEliglibilityActivity.class)
+                                    .putExtra(LoanConst.AadhaarDetail, getResources().getString(R.string.AadhaarQue6))
+                                    .putExtra(LoanConst.AadhaarPos, pos));
+                        }
+                    });
+
                 }
                 break;
             }
