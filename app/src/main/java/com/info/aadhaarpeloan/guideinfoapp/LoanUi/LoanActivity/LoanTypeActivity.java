@@ -1,6 +1,7 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import com.info.aadhaarpeloan.guideinfoapp.R;
 
 public class LoanTypeActivity extends AppCompatActivity implements View.OnClickListener {
     private Context context;
-    private Button BtnHomeLoan, BtnEducationLoan, BtnGoldLoan, BtnBusinessLoan, BtnVehicleLoan;
+    private CardView BtnHomeLoan, BtnEducationLoan, BtnGoldLoan, BtnBusinessLoan, BtnVehicleLoan;
     private ImageView IvBack;
     private TextView TvTitle;
 
@@ -35,11 +36,11 @@ public class LoanTypeActivity extends AppCompatActivity implements View.OnClickL
         context = this;
         IvBack = (ImageView) findViewById(R.id.IvBack);
         TvTitle = (TextView) findViewById(R.id.TvTitle);
-        BtnHomeLoan = (Button) findViewById(R.id.BtnHomeLoan);
-        BtnEducationLoan = (Button) findViewById(R.id.BtnEducationLoan);
-        BtnGoldLoan = (Button) findViewById(R.id.BtnGoldLoan);
-        BtnBusinessLoan = (Button) findViewById(R.id.BtnBusinessLoan);
-        BtnVehicleLoan = (Button) findViewById(R.id.BtnVehicleLoan);
+        BtnHomeLoan = (CardView) findViewById(R.id.BtnHomeLoan);
+        BtnEducationLoan = (CardView) findViewById(R.id.BtnEducationLoan);
+        BtnGoldLoan = (CardView) findViewById(R.id.BtnGoldLoan);
+        BtnBusinessLoan = (CardView) findViewById(R.id.BtnBusinessLoan);
+        BtnVehicleLoan = (CardView) findViewById(R.id.BtnVehicleLoan);
     }
 
     private void GuideListerns() {

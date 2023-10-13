@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/CardAnswer"
+                app:layout_constraintStart_toStartOf="@+id/CardAnswer"
+                app:layout_constraintTop_toBottomOf="@+id/CardAnswer">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/ic_button_view"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TvReset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_reset"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/reset"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/ic_button_view"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TvCalculate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:drawableEnd="@drawable/ic_calculate"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/calculate"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/TvLoanPeriod"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/period"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardMonthlyEMI"
+                app:layout_constraintStart_toStartOf="@+id/CardMonthlyEMI"
+                app:layout_constraintTop_toBottomOf="@+id/CardMonthlyEMI" />
+
+            <TextView
+                android:id="@+id/TvLoanRate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/rate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardLoanMonth"
+                app:layout_constraintStart_toStartOf="@+id/CardLoanMonth"
+                app:layout_constraintTop_toBottomOf="@+id/CardLoanMonth" />
+
+            <TextView
+                android:id="@+id/TvMonthlyEMI"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/monthly_emi_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardLoanMonth"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_1sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/CardLoanYears"
+                app:layout_constraintEnd_toEndOf="@+id/TvLoanPeriod"
+                app:layout_constraintStart_toEndOf="@+id/CardLoanYears"
+                app:layout_constraintTop_toTopOf="@+id/CardLoanYears">
+
+                <EditText
+                    android:id="@+id/EditLoanMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/months"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardMonthlyEMI"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_margin="@dimen/_1sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvMonthlyEMI"
+                app:layout_constraintStart_toStartOf="@+id/TvMonthlyEMI"
+                app:layout_constraintTop_toBottomOf="@+id/TvMonthlyEMI">
+
+                <EditText
+                    android:id="@+id/EditMonthlyEMI"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/emi"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardLoanRate"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_margin="@dimen/_1sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvLoanRate"
+                app:layout_constraintStart_toStartOf="@+id/TvLoanRate"
+                app:layout_constraintTop_toBottomOf="@+id/TvLoanRate">
+
+                <EditText
+                    android:id="@+id/EditLoanRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/rate_per"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_1sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="@+id/CardLoanRate"
+                app:layout_constraintStart_toStartOf="@+id/CardLoanRate"
+                app:layout_constraintTop_toBottomOf="@+id/CardLoanRate">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/TvLoanAnsFirst"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.6"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/loan_amount_title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/TvLoanAmountFirst"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/TvLoanAmountFirst" />
+
+                        <TextView
+                            android:id="@+id/TvLoanAmountFirst"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.4"
+                            android:gravity="end"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/_00_0000"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/TvLoanAmountSecond"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toEndOf="@+id/TvLoanAnsFirst"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/TvLoanAnsSecond"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.6"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/total_interest_title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/TvLoanAmountSecond"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/TvLoanAmountSecond" />
+
+                        <TextView
+                            android:id="@+id/TvLoanAmountSecond"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.4"
+                            android:gravity="end"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/_00_0000"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintBottom_toTopOf="@+id/TvLoanAmountThird"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toEndOf="@+id/TvLoanAnsSecond"
+                            app:layout_constraintTop_toBottomOf="@+id/TvLoanAmountFirst" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/TvLoanAnsThird"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_weight="0.6"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/total_payment_title"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/TvLoanAmountThird"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/TvLoanAmountThird" />
+
+                        <TextView
+                            android:id="@+id/TvLoanAmountThird"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_weight="0.4"
+                            android:gravity="end"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/_00_0000"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toEndOf="@+id/TvLoanAnsThird"
+                            app:layout_constraintTop_toBottomOf="@+id/TvLoanAmountSecond" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardLoanYears"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toStartOf="@+id/CardLoanMonth"
+                app:layout_constraintStart_toStartOf="@+id/TvLoanPeriod"
+                app:layout_constraintTop_toBottomOf="@+id/TvLoanPeriod">
+
+                <EditText
+                    android:id="@+id/EditLoanYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/years"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

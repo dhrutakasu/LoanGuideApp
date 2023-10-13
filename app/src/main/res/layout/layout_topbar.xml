@@ -35,7 +35,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:padding="@dimen/_2sdp"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:adjustViewBounds="true"
                     android:src="@drawable/ic_back"
                     app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:padding="@dimen/_2sdp"
-                    android:visibility="gone"
+                    android:src="@drawable/ic_back"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

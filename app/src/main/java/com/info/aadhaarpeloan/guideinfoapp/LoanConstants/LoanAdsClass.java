@@ -194,12 +194,8 @@ public class LoanAdsClass {
 
     }
 
-    public static void ShowInterstitialAd(Activity activity, String id, String show, LoanCallback loanCallback) {
-        MobileAds.initialize(activity, new OnInitializationCompleteListener() {
-
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
+    public static void ShowAdMobInterstitialAd(Activity activity, String id, String show, LoanCallback loanCallback) {
+        MobileAds.initialize(activity, initializationStatus -> {
         });
 
         interstitialAd.load(activity, id, new AdRequest.Builder().build(), new InterstitialAdLoadCallback() {
@@ -208,30 +204,30 @@ public class LoanAdsClass {
                 if (show.equalsIgnoreCase("t")) {
                     if (interstitialAd != null) {
                         interstitialAd.show(activity);
+                        interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                System.out.println("----- - - dissmidd : ");
+                                LoanAdsClass.interstitialAd = null;
+
+
+                                LoanAdsClass.loanCallback = loanCallback;
+                                if (LoanAdsClass.loanCallback != null) {
+                                    LoanAdsClass.loanCallback.AppCallback();
+                                    LoanAdsClass.loanCallback = null;
+                                }
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                LoanAdsClass.interstitialAd = null;
+                                System.out.println("----- - - ad error : " + adError.getMessage());
+                            }
+                        });
                         return;
                     }
                 }
-                LoanAdsClass.interstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                    @Override
-                    public void onAdDismissedFullScreenContent() {
-                        System.out.println("----- - - dissmidd : ");
-                        LoanAdsClass.interstitialAd = null;
 
-
-                        LoanAdsClass.loanCallback = loanCallback;
-                        if (LoanAdsClass.loanCallback != null) {
-                            LoanAdsClass.loanCallback.AppCallback();
-                            LoanAdsClass.loanCallback = null;
-                        }
-                    }
-
-                    @Override
-                    public void onAdFailedToShowFullScreenContent(AdError adError) {
-                        LoanAdsClass.interstitialAd = null;
-                        System.out.println("----- - - ad error : " + adError.getMessage());
-//                        ShowInterstitialAd(activity, id, show, loanCallback);
-                    }
-                });
             }
 
             @Override
@@ -307,7 +303,7 @@ public class LoanAdsClass {
                             if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
                                 ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.GONE);
                             }
-                            LoanAdsClass.ShowInterstitialAd((Activity) context, loanAdsModel.getIad(), loanAdsModel.getLogin(), loanCallback);
+                            LoanAdsClass.ShowAdMobInterstitialAd((Activity) context, loanAdsModel.getIad(), loanAdsModel.getLogin(), loanCallback);
                         } else {
                             if (((Activity) context).findViewById(R.id.NativeBannerAdContainer) != null) {
                                 ((Activity) context).findViewById(R.id.NativeBannerAdContainer).setVisibility(View.VISIBLE);

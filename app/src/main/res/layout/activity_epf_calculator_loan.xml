@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoanUi.LoanActivity.Calculators.LoanEPFCalculatorActivity">
+
+    <RelativeLayout
+        android:id="@+id/RlHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include layout="@layout/layout_topbar" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RlHeaderBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/TvCurrentEPF"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/current_epf_balance_rs"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardCurrentEPF"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_margin="@dimen/_1sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvCurrentEPF"
+                app:layout_constraintStart_toStartOf="@+id/TvCurrentEPF"
+                app:layout_constraintTop_toBottomOf="@+id/TvCurrentEPF">
+
+                <EditText
+                    android:id="@+id/EditCurrentEPF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/current_epf_balance_rs"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/TvBasicSalary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/basic_salary_monthly_rs"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardCurrentEPF"
+                app:layout_constraintStart_toStartOf="@+id/CardCurrentEPF"
+                app:layout_constraintTop_toBottomOf="@+id/CardCurrentEPF" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardBasicSalary"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvBasicSalary"
+                app:layout_constraintStart_toStartOf="@+id/TvBasicSalary"
+                app:layout_constraintTop_toBottomOf="@+id/TvBasicSalary">
+
+                <EditText
+                    android:id="@+id/EditBasicSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/basic_salary_monthly_rs"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/TvEmployerEPF"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/employer_s_contriution_to_epf"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardBasicSalary"
+                app:layout_constraintStart_toStartOf="@+id/CardBasicSalary"
+                app:layout_constraintTop_toBottomOf="@+id/CardBasicSalary" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardEmployerEPF"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvEmployerEPF"
+                app:layout_constraintStart_toStartOf="@+id/TvEmployerEPF"
+                app:layout_constraintTop_toBottomOf="@+id/TvEmployerEPF">
+
+                <EditText
+                    android:id="@+id/EditEmployerEPF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/employer_s_contriution_to_epf"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/TvContribution"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/your_contribution_to_epf"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardEmployerEPF"
+                app:layout_constraintStart_toStartOf="@+id/CardEmployerEPF"
+                app:layout_constraintTop_toBottomOf="@+id/CardEmployerEPF" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardContribution"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvContribution"
+                app:layout_constraintStart_toStartOf="@+id/TvContribution"
+                app:layout_constraintTop_toBottomOf="@+id/TvContribution">
+
+                <EditText
+                    android:id="@+id/EditContribution"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/your_contribution_to_epf"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/TvIncreaseSalary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/annual_increase_in_salary_you_expect"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardContribution"
+                app:layout_constraintStart_toStartOf="@+id/CardContribution"
+                app:layout_constraintTop_toBottomOf="@+id/CardContribution" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardIncreaseSalary"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvIncreaseSalary"
+                app:layout_constraintStart_toStartOf="@+id/TvIncreaseSalary"
+                app:layout_constraintTop_toBottomOf="@+id/TvIncreaseSalary">
+
+                <EditText
+                    android:id="@+id/EditIncreaseSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/your_contribution_to_epf"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+            
+            <TextView
+                android:id="@+id/TvAgeRetire"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/age_when_you_intend_to_retire_years"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardIncreaseSalary"
+                app:layout_constraintStart_toStartOf="@+id/CardIncreaseSalary"
+                app:layout_constraintTop_toBottomOf="@+id/CardIncreaseSalary" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardAgeRetire"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvAgeRetire"
+                app:layout_constraintStart_toStartOf="@+id/TvAgeRetire"
+                app:layout_constraintTop_toBottomOf="@+id/TvAgeRetire">
+
+                <EditText
+                    android:id="@+id/EditAgeRetire"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/age_when_you_intend_to_retire_years"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+            
+            <TextView
+                android:id="@+id/TvAge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/your_age_years"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardAgeRetire"
+                app:layout_constraintStart_toStartOf="@+id/CardAgeRetire"
+                app:layout_constraintTop_toBottomOf="@+id/CardAgeRetire" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardAge"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvAge"
+                app:layout_constraintStart_toStartOf="@+id/TvAge"
+                app:layout_constraintTop_toBottomOf="@+id/TvAge">
+
+                <EditText
+                    android:id="@+id/EditAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/your_age_years"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+            
+            <TextView
+                android:id="@+id/TvCurrentInterest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:text="@string/current_epf_interest_rate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/CardAge"
+                app:layout_constraintStart_toStartOf="@+id/CardAge"
+                app:layout_constraintTop_toBottomOf="@+id/CardAge" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardCurrentInterest"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_40ssp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@+id/TvCurrentInterest"
+                app:layout_constraintStart_toStartOf="@+id/TvCurrentInterest"
+                app:layout_constraintTop_toBottomOf="@+id/TvCurrentInterest">
+
+                <EditText
+                    android:id="@+id/EditCurrentInterest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/current_epf_interest_rate"
+                    android:inputType="number"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_1sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintEnd_toEndOf="@+id/CardCurrentInterest"
+                app:layout_constraintStart_toStartOf="@+id/CardCurrentInterest"
+                app:layout_constraintTop_toBottomOf="@+id/CardCurrentInterest">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/TvEPFAnsFirst"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.6"
+                            android:padding="@dimen/_2sdp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:text="@string/total_pf_balance"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/TvLoanAmountFirst"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/TvLoanAmountFirst" />
+
+                        <TextView
+                            android:id="@+id/TvEPFAmountFirst"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_weight="0.4"
+                            android:gravity="center_vertical|end"
+                            android:padding="@dimen/_2sdp"
+                            android:text="@string/_00_0000"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/TvLoanAmountSecond"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintStart_toEndOf="@+id/TvLoanAnsFirst"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/LlButtons"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/CardAnswer"
+                app:layout_constraintStart_toStartOf="@+id/CardAnswer"
+                app:layout_constraintTop_toBottomOf="@+id/CardAnswer">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/ic_button_view"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/TvReset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:drawableEnd="@drawable/ic_reset"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/reset"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/ic_button_view"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TvCalculate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:drawableEnd="@drawable/ic_calculate"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="@string/calculate"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

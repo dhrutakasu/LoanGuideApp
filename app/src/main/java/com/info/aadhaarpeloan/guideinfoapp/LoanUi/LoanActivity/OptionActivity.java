@@ -18,7 +18,7 @@ import com.info.aadhaarpeloan.guideinfoapp.R;
 public class OptionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context context;
-    private Button BtnApplyLoan,BtnFAQs;
+    private Button BtnApplyLoan,BtnFAQs,BtnCalculators;
     private ImageView IvBack;
     private TextView TvTitle;
 
@@ -37,12 +37,14 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         TvTitle = (TextView) findViewById(R.id.TvTitle);
         BtnApplyLoan = (Button) findViewById(R.id.BtnApplyLoan);
         BtnFAQs = (Button) findViewById(R.id.BtnFAQs);
+        BtnCalculators = (Button) findViewById(R.id.BtnCalculators);
     }
 
     private void GuideListerns() {
         IvBack.setOnClickListener(this);
         BtnApplyLoan.setOnClickListener(this);
         BtnFAQs.setOnClickListener(this);
+        BtnCalculators.setOnClickListener(this);
     }
 
     private void GuideActions() {
@@ -72,6 +74,14 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void AppCallback() {
                         startActivity(new Intent(context, FAQsOptionActivity.class));
+                    }
+                });
+                break;
+            case R.id.BtnCalculators:
+                LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
+                    @Override
+                    public void AppCallback() {
+                        startActivity(new Intent(context, CalculatorsOptionActivity.class));
                     }
                 });
                 break;

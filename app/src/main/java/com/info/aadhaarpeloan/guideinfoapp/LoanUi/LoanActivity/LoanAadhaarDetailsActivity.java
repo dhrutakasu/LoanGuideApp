@@ -43,6 +43,7 @@ public class LoanAadhaarDetailsActivity extends AppCompatActivity implements Vie
     }
 
     private void GuideActions() {
+        IvBack.setVisibility(View.VISIBLE);
         if (getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 0 || getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 3 || getIntent().getIntExtra(LoanConst.AadhaarPos, 0) == 5) {
             LoanAdsClass.ShowActivityNativeAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
         } else {

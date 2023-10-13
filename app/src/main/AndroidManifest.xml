@@ -3,9 +3,13 @@
     package="com.info.aadhaarpeloan.guideinfoapp">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <meta-data
         android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
         android:value="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".LoanApp"
         android:allowBackup="true"
@@ -14,11 +18,64 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AadhaarPeLoanGuideInfoApp">
+        android:theme="@style/Theme.AadhaarPeLoanGuideInfoApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanBrokerageCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanEMICalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanAmountCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanRdCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanFDCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanSIPCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanSwapCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanGSTCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanEPFCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanPPFCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanInflationCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.Calculators.LoanGratuityCalculatorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanUi.LoanActivity.CalculatorsOptionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.PrivacyActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanUi.LoanActivity.BankDetailActivity"
             android:exported="false"
@@ -142,7 +199,5 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

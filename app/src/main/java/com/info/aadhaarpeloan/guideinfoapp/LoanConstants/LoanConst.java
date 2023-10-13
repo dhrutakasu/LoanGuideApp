@@ -1,9 +1,11 @@
 package com.info.aadhaarpeloan.guideinfoapp.LoanConstants;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
@@ -12,7 +14,6 @@ import com.info.aadhaarpeloan.guideinfoapp.LoanModels.BankLoanModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.DocumentModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.FAQsModel;
 import com.info.aadhaarpeloan.guideinfoapp.LoanModels.LoanAdsModel;
-import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
 import com.info.aadhaarpeloan.guideinfoapp.R;
 
 import org.json.JSONArray;
@@ -280,6 +281,18 @@ public class LoanConst {
         };
         FetchData.getInstance(context).addToRequestQueue(request);
         return loanAdsModel;
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        View focusedView = activity.getCurrentFocus();
+        if (focusedView != null) {
+            hideKeyboardFromView(activity, focusedView);
+        }
+    }
+
+    public static void hideKeyboardFromView(Activity activity, View view) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     public interface LoadAdsId {

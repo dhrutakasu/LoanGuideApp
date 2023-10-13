@@ -7,8 +7,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.info.aadhaarpeloan.guideinfoapp.LoanConstants.LoanAdsClass;
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.LoanSpalshActivity;
 import com.info.aadhaarpeloan.guideinfoapp.LoanUi.LoanActivity.MainActivity;
 import com.info.aadhaarpeloan.guideinfoapp.R;
@@ -32,6 +35,8 @@ public class ExitDialog extends Dialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.dialog_exit);
+        LoanAdsClass.ShowActivityNativeBannerAds(activity, ((ProgressBar) findViewById(R.id.progressBarNative)), (RelativeLayout) findViewById(R.id.RlNativeExit));
+
         Button BtnExit = (Button) findViewById(R.id.BtnExit);
         TextView TvDialogNotExit = (TextView) findViewById(R.id.TvDialogNotExit);
         BtnExit.setOnClickListener(view -> {
