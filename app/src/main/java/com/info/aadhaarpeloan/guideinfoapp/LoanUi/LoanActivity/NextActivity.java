@@ -20,6 +20,7 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
 
     private Context context;
     private Button BtnNext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +40,12 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
+        LoanAdsClass.ShowActivityNativeBannerAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.BtnNext:
                 LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {
                     @Override

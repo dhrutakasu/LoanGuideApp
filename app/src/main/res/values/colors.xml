@@ -10,4 +10,5 @@
     <color name="app_color">#005CEE</color>
     <color name="gray">#878787</color>
     <color name="gray_light">#DADADA</color>
+    <color name="btn_gray_light">#a8a8a8</color>
 </resources>

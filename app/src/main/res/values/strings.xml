@@ -169,4 +169,5 @@
     <string name="monthly_salary_basic_da">Monthly Salary (Basic + DA)</string>
     <string name="monthly_salary_amount">Monthly Salary Amount</string>
     <string name="year_of_service">Year Of Service</string>
+    <string name="share_message" >Download it. \n\n https://play.google.com/store/apps/details?id=</string>
 </resources>

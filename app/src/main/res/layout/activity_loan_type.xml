@@ -34,7 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="10dp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp" />
 
         <com.facebook.ads.NativeAdLayout
             android:id="@+id/NativeBannerAdContainer"
@@ -77,26 +80,32 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:drawableStart="@drawable/ic_home_loan"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:drawableTint="@color/app_color"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/_15sdp"
-                    android:text="@string/HomeLoan"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_home_loan"
+                        android:tint="@color/app_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:fontFamily="@font/main_bold"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/HomeLoan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
                         android:layout_gravity="center"
+                        android:layout_weight="0.2"
                         android:src="@drawable/ic_arrow" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -120,26 +129,32 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:drawableStart="@drawable/ic_business_loan"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:drawableTint="@color/app_color"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/_15sdp"
-                    android:text="@string/bussiness_loan"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_business_loan"
+                        android:tint="@color/app_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:fontFamily="@font/main_bold"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/bussiness_loan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
                         android:layout_gravity="center"
+                        android:layout_weight="0.2"
                         android:src="@drawable/ic_arrow" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -158,32 +173,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/BtnBusinessLoan">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:drawableStart="@drawable/ic_gold_loan"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:drawableTint="@color/app_color"
-                    android:fontFamily="@font/main_bold"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/_15sdp"
-                    android:text="@string/GoldLoan"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_gold_loan"
+                        android:tint="@color/app_color" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6"
+                        android:fontFamily="@font/main_bold"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/GoldLoan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
                         android:layout_gravity="center"
+                        android:layout_weight="0.2"
                         android:src="@drawable/ic_arrow" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -207,13 +227,19 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_education_loan"
+                        android:tint="@color/app_color" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.8"
-                        android:drawableStart="@drawable/ic_education_loan"
-                        android:drawablePadding="@dimen/_8sdp"
-                        android:drawableTint="@color/app_color"
+                        android:layout_weight="0.6"
                         android:fontFamily="@font/main_bold"
                         android:gravity="center_vertical"
                         android:padding="@dimen/_15sdp"
@@ -250,13 +276,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:padding="@dimen/_8sdp"
+                        android:src="@drawable/ic_vehicle_loan"
+                        android:tint="@color/app_color" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.8"
-                        android:drawableStart="@drawable/ic_vehicle_loan"
-                        android:drawablePadding="@dimen/_8sdp"
-                        android:drawableTint="@color/app_color"
+                        android:layout_weight="0.6"
                         android:fontFamily="@font/main_bold"
                         android:gravity="center_vertical"
                         android:padding="@dimen/_15sdp"

@@ -61,7 +61,6 @@ public class PrivacyActivity extends AppCompatActivity implements View.OnClickLi
             LoanConst.LoadAdsData(PrivacyActivity.this, new LoanConst.LoadAdsId() {
                 @Override
                 public void getAdsIds(LoanAdsModel loanAdsModel) {
-                    System.out.println("------ -- - loanAdsModel : " + loanAdsModel);
                     if (!loanAdsModel.getAppPrivacyPolicyLink().equalsIgnoreCase("")) {
                         WebViewPolicy.setInitialScale(100);
                         WebSettings webPrivacySettings = WebViewPolicy.getSettings();

@@ -33,7 +33,7 @@ public class DocumentListAdapter extends RecyclerView.Adapter<DocumentListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.TvFAQsTitle.setTextColor(context.getResources().getColor(R.color.black));
+        holder.TvFAQsTitle.setTextColor(context.getResources().getColor(R.color.app_color));
         holder.TvFAQsTitle.setText(faQsDetails.get(position).toString());
         holder.TvFAQsDec.setVisibility(View.GONE);
     }

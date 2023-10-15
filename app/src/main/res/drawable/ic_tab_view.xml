@@ -4,14 +4,14 @@
         <shape>
             <gradient android:startColor="@color/purple_500"
                 android:endColor="@color/purple_200" />
-            <corners android:radius="@dimen/_20sdp" />
+            <corners android:radius="@dimen/_10sdp" />
         </shape>
     </item>
     <item android:state_pressed="true" >
         <shape>
             <gradient android:startColor="@color/purple_200"
                 android:endColor="@color/purple_500" />
-            <corners android:radius="@dimen/_20sdp" />
+            <corners android:radius="@dimen/_10sdp" />
         </shape>
     </item>
 </selector>

@@ -31,13 +31,15 @@
                 <ImageView
                     android:id="@+id/IvBack"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:padding="@dimen/_2sdp"
-                    android:visibility="invisible"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:visibility="visible"
                     android:adjustViewBounds="true"
                     android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -45,9 +47,10 @@
             <TextView
                 android:id="@+id/TvTitle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/_minus3sdp"
                 android:layout_toStartOf="@+id/ConsToolRight"
                 android:layout_toEndOf="@+id/ConsTopbarLeft"
                 android:gravity="center"

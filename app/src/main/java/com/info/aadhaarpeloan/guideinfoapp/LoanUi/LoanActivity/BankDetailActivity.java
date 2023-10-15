@@ -55,7 +55,7 @@ public class BankDetailActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityNativeAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
+        LoanAdsClass.ShowActivityNativeBannerAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getIntent().getStringExtra(LoanConst.AadhaarDetail));
         for (int i = 0; i < LoanConst.GotoBankLoanList(context).size(); i++) {

@@ -40,7 +40,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
+        LoanAdsClass.ShowActivityNativeBannerAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
     }
 
     @Override

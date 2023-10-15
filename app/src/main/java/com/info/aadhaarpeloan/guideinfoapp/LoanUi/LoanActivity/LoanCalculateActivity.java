@@ -88,9 +88,5 @@ public class LoanCalculateActivity extends AppCompatActivity implements View.OnC
         double monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
                 / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
-        System.out.println("Loan Amount: $" + loanAmount);
-        System.out.println("Loan Term: " + loanYears + " years");
-        System.out.println("Annual Interest Rate: " + (annualInterestRate * 100) + "%");
-        System.out.println("Monthly Payment: $" + monthlyPayment);
-    }
+      }
 }

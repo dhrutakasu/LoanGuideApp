@@ -73,7 +73,6 @@ public class EMIFragment extends Fragment implements View.OnClickListener {
     }
 
     private void GotoLoanReset() {
-        System.out.println("-- - - -  EMI_POSReset " + EMI_POS);
         if (EMI_POS == 0) {
             TvMonthlyEMI.setText(context.getString(R.string.monthly_emi_title));
             TvLoanAnsFirst.setText(context.getString(R.string.loan_amount_title));
@@ -106,7 +105,6 @@ public class EMIFragment extends Fragment implements View.OnClickListener {
     }
 
     private void GotoLoanCalculate() {
-        System.out.println("-- - - -  EMI_POS " + EMI_POS);
         LoanConst.hideKeyboard(getActivity());
         DecimalFormat format = new DecimalFormat("#####0.00");
         if (EMI_POS == 0) {

@@ -75,16 +75,11 @@ public class LoanEMICalculatorActivity extends AppCompatActivity implements View
     }
 
     private void GotoLoanButtonsCheck(TextView textView, int i) {
-        TvLoanAmountBtn.setBackgroundColor(getResources().getColor(R.color.gray_light));
-        TvLoanAmountBtn.setTextColor(getResources().getColor(R.color.black));
-        TvMonthlyEMIBtn.setBackgroundColor(getResources().getColor(R.color.gray_light));
-        TvMonthlyEMIBtn.setTextColor(getResources().getColor(R.color.black));
-        TvTotalInterestBtn.setBackgroundColor(getResources().getColor(R.color.gray_light));
-        TvTotalInterestBtn.setTextColor(getResources().getColor(R.color.black));
-        TvTotalPaymentBtn.setBackgroundColor(getResources().getColor(R.color.gray_light));
-        TvTotalPaymentBtn.setTextColor(getResources().getColor(R.color.black));
-        textView.setBackgroundColor(getResources().getColor(R.color.black));
-        textView.setTextColor(getResources().getColor(R.color.white));
+        TvLoanAmountBtn.setBackgroundResource(R.drawable.ic_tab_view_unselected);
+        TvMonthlyEMIBtn.setBackgroundResource(R.drawable.ic_tab_view_unselected);
+        TvTotalInterestBtn.setBackgroundResource(R.drawable.ic_tab_view_unselected);
+        TvTotalPaymentBtn.setBackgroundResource(R.drawable.ic_tab_view_unselected);
+        textView.setBackgroundResource(R.drawable.ic_tab_view);
         loanEmiAdapter.getItem(i);
     }
 

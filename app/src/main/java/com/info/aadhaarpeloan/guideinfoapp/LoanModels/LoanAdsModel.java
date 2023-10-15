@@ -60,6 +60,7 @@ public class LoanAdsModel{
 	private String closeadopen;
 
 	private String appAdsButtonColor;
+	private String backgroundcolor;
 
 	private String telegramlink;
 
@@ -301,6 +302,14 @@ public class LoanAdsModel{
 		return appAdsButtonColor;
 	}
 
+	public String getBackgroundcolor() {
+		return backgroundcolor;
+	}
+
+	public void setBackgroundcolor(String backgroundcolor) {
+		this.backgroundcolor = backgroundcolor;
+	}
+
 	public void setTelegramlink(String telegramlink){
 		this.telegramlink = telegramlink;
 	}
@@ -334,42 +343,42 @@ public class LoanAdsModel{
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"LoanAdsModel{" + 
-			"bad = '" + bad + '\'' + 
-			",btype = '" + btype + '\'' + 
-			",fiad = '" + fiad + '\'' + 
-			",login = '" + login + '\'' + 
-			",startappid = '" + startappid + '\'' + 
-			",siad = '" + siad + '\'' + 
-			",pkg = '" + pkg + '\'' + 
-			",preload = '" + preload + '\'' + 
-			",iad = '" + iad + '\'' + 
-			",querkalink = '" + querkalink + '\'' + 
-			",nad = '" + nad + '\'' + 
-			",liad = '" + liad + '\'' + 
-			",oad2 = '" + oad2 + '\'' + 
-			",oad = '" + oad + '\'' + 
-			",lnad = '" + lnad + '\'' + 
-			",fnad = '" + fnad + '\'' + 
-			",ownn = '" + ownn + '\'' + 
-			",itype = '" + itype + '\'' + 
-			",appAdsButtonTextColor = '" + appAdsButtonTextColor + '\'' + 
-			",ownblink = '" + ownblink + '\'' + 
-			",backads = '" + backads + '\'' + 
-			",ownb = '" + ownb + '\'' + 
-			",lbad = '" + lbad + '\'' + 
-			",ntype = '" + ntype + '\'' + 
-			",fnbad = '" + fnbad + '\'' + 
-			",fbad = '" + fbad + '\'' + 
-			",nad2 = '" + nad2 + '\'' + 
-			",closeadopen = '" + closeadopen + '\'' + 
-			",appAdsButtonColor = '" + appAdsButtonColor + '\'' + 
-			",telegramlink = '" + telegramlink + '\'' + 
-			",adscount = '" + adscount + '\'' + 
-			",app_privacyPolicyLink = '" + appPrivacyPolicyLink + '\'' + 
-			",ownnlink = '" + ownnlink + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "LoanAdsModel{" +
+				"bad='" + bad + '\'' +
+				", btype='" + btype + '\'' +
+				", fiad='" + fiad + '\'' +
+				", login='" + login + '\'' +
+				", startappid='" + startappid + '\'' +
+				", siad='" + siad + '\'' +
+				", pkg='" + pkg + '\'' +
+				", preload='" + preload + '\'' +
+				", iad='" + iad + '\'' +
+				", querkalink='" + querkalink + '\'' +
+				", nad='" + nad + '\'' +
+				", liad='" + liad + '\'' +
+				", oad2='" + oad2 + '\'' +
+				", oad='" + oad + '\'' +
+				", lnad='" + lnad + '\'' +
+				", fnad='" + fnad + '\'' +
+				", ownn='" + ownn + '\'' +
+				", itype='" + itype + '\'' +
+				", appAdsButtonTextColor='" + appAdsButtonTextColor + '\'' +
+				", ownblink='" + ownblink + '\'' +
+				", backads='" + backads + '\'' +
+				", ownb='" + ownb + '\'' +
+				", lbad='" + lbad + '\'' +
+				", ntype='" + ntype + '\'' +
+				", fnbad='" + fnbad + '\'' +
+				", fbad='" + fbad + '\'' +
+				", nad2='" + nad2 + '\'' +
+				", closeadopen='" + closeadopen + '\'' +
+				", appAdsButtonColor='" + appAdsButtonColor + '\'' +
+				", backgroundcolor='" + backgroundcolor + '\'' +
+				", telegramlink='" + telegramlink + '\'' +
+				", adscount='" + adscount + '\'' +
+				", appPrivacyPolicyLink='" + appPrivacyPolicyLink + '\'' +
+				", ownnlink='" + ownnlink + '\'' +
+				'}';
+	}
 }

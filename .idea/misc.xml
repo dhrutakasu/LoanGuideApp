@@ -8,6 +8,9 @@
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_button_view.xml" value="0.121" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_dialog_view.xml" value="0.121" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_hand.xml" value="0.121" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_rate.xml" value="0.1205" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_share.xml" value="0.1205" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/drawable/ic_tab_view.xml" value="0.121" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_bank_detail.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_bank_list.xml" value="0.2" />
@@ -35,9 +38,9 @@
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_loan_on_adhaar.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_loan_option.xml" value="0.22" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_loan_type.xml" value="0.1859375" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_next.xml" value="0.1814814814814815" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_option.xml" value="0.16" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_option.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_ppf_calculator.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_privacy.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_rd_calculator.xml" value="0.22" />
@@ -47,17 +50,18 @@
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_required_transfer_home_loan.xml" value="0.25" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_required_transfer_mortigage_loan.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_sipcalculator.xml" value="0.1814814814814815" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_spalsh_loan.xml" value="0.2" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_spalsh_loan.xml" value="0.18" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_start.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_swap_calculator.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/dialog_exit.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/dialog_setting.xml" value="0.2" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/fragment_emi.xml" value="0.25" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_aadhaar_data.xml" value="0.1814814814814815" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_ads_item_big_native_layout.xml" value="0.16" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_ads_item_big_native_banner_layout.xml" value="0.18" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_ads_item_big_native_layout.xml" value="0.18" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_faqs_data.xml" value="0.22" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_fb_native_ad.xml" value="0.2" />
-        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_fb_native_banner_ad.xml" value="0.1814814814814815" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_fb_native_ad.xml" value="0.18" />
+        <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_fb_native_banner_ad.xml" value="0.16" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_item_calculator.xml" value="0.33" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/layout_topbar.xml" value="0.1814814814814815" />
         <entry key="..\:/Dhruta/Dhruta project/Client/Manish patel/Bank Balancer Check/Aadhaar Pe Loan Guide Info App/AadhaarPeLoanGuideInfo/app/src/main/res/layout/activity_go.xml" value="0.2" />

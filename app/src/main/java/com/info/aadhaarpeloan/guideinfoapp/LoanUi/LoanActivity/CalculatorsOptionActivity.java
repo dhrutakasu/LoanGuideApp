@@ -63,7 +63,7 @@ public class CalculatorsOptionActivity extends AppCompatActivity implements View
         LoanAdsClass.ShowActivityBannerAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
 
         IvBack.setVisibility(View.VISIBLE);
-        TvTitle.setText(getResources().getString(R.string.LoanFAQs));
+        TvTitle.setText(getResources().getString(R.string.LoanCalculator));
         RvCalculatorsList.setLayoutManager(new GridLayoutManager(context, 2));
         ArrayList<CalculatorModel> calculatorModels = new ArrayList<>();
         calculatorModels.add(new CalculatorModel(getString(R.string.LoanBrokerageCalculator), R.drawable.ic_brokreage_calculator));
@@ -79,12 +79,12 @@ public class CalculatorsOptionActivity extends AppCompatActivity implements View
         calculatorModels.add(new CalculatorModel(getString(R.string.LoanInflationCalculator), R.drawable.ic_inflution_calculator));
         calculatorModels.add(new CalculatorModel(getString(R.string.LoanGratuityCalculator), R.drawable.ic_gratuity_calculator));
         CalculatorsAdapter calculatorsAdapter = new CalculatorsAdapter(context, calculatorModels, pos -> {
-            GotoCalculatorOpen(pos, calculatorModels);
+            GotoCalculatorOpen(pos);
         });
         RvCalculatorsList.setAdapter(calculatorsAdapter);
     }
 
-    private void GotoCalculatorOpen(int pos, ArrayList<CalculatorModel> calculatorModels) {
+    private void GotoCalculatorOpen(int pos) {
         switch (pos) {
             case 0:
                 LoanAdsClass.ShowActivityInterstitialAd(context, new LoanAdsClass.LoanCallback() {

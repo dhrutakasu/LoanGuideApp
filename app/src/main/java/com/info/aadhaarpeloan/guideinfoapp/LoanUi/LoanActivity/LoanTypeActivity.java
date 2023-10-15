@@ -53,7 +53,7 @@ public class LoanTypeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityNativeAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
+        LoanAdsClass.ShowActivityNativeBannerAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.LoanType));
     }

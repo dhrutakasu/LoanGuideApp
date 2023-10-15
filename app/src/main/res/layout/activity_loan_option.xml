@@ -21,10 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_5sdp"
-        app:layout_constraintBottom_toTopOf="@+id/RlBannerAd"
+        app:layout_constraintTop_toBottomOf="@+id/RlBannerAd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RlTopBar">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/TvFAQsDec"
@@ -74,13 +74,14 @@
             app:layout_constraintBottom_toTopOf="@id/TvFAQsDec"
             android:src="@drawable/ic_loan_on_aadhaar"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <RelativeLayout
         android:id="@+id/RlBannerAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:gravity="bottom|center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RlTopBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 

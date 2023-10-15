@@ -267,15 +267,14 @@ public class LoanConst {
                         loanAdsModel.setAppPrivacyPolicyLink(response.getString("app_privacyPolicyLink"));
                         loanAdsModel.setAppAdsButtonColor(response.getString("appAdsButtonColor"));
                         loanAdsModel.setAppAdsButtonTextColor(response.getString("appAdsButtonTextColor"));
+                        loanAdsModel.setBackgroundcolor(response.getString("backgroundcolor"));
                         loanAdsModel.setAdscount(response.getString("adscount"));
                         loadAdsId.getAdsIds(loanAdsModel);
                     } catch (JSONException e) {
-                        System.out.println("------ -- - JSONException : " + e.getMessage());
                         e.printStackTrace();
                     }
                 },
                 error -> {
-                    System.out.println("------ -- - JSONException : " + error.getMessage());
                     error.getLocalizedMessage();
                 }) {
         };

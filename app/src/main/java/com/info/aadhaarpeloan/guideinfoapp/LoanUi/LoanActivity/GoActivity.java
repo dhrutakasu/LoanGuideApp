@@ -36,7 +36,7 @@ public class GoActivity extends AppCompatActivity implements View.OnClickListene
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
+        LoanAdsClass.ShowActivityNativeBannerAds(context, ((ProgressBar) findViewById(R.id.progressBar)), (RelativeLayout) findViewById(R.id.RlBannerAd));
     }
 
     @Override

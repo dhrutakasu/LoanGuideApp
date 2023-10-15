@@ -95,7 +95,6 @@ public class LoanInflationCalculatorActivity extends AppCompatActivity implement
                 return;
             }
             if (IninitialYear < 1997 || IninitialYear > 2016 || InfinalYear < 1998 || InfinalYear > 2017) {
-                System.out.println("Invalid year range. Please enter years between 1997-2016 for initial year and 1998-2017 for final year.");
                 return;
             }
             double[] inflationRates = {

@@ -48,8 +48,7 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void GuideActions() {
-        LoanAdsClass.ShowActivityBannerAds(context,((ProgressBar) findViewById(R.id.progressBar)),(RelativeLayout) findViewById(R.id.RlBannerAd));
-        LoanAdsClass.ShowActivityNativeBannerAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
+        LoanAdsClass.ShowActivityNativeAds(context,((ProgressBar) findViewById(R.id.progressBarNative)),(RelativeLayout) findViewById(R.id.RlNativeAd));
 
         IvBack.setVisibility(View.VISIBLE);
         TvTitle.setText(getResources().getString(R.string.OptionTitle));
